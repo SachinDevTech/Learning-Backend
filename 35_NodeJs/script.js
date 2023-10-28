@@ -1,7 +1,7 @@
 // Just printing the below code by "node script.js" in node runtime environment.
 
 // let num1 = 5;
-// for (let index = 0; index < num1; index++) {
+// for (let index = 1; index <= num1; index++) {
 //     console.log("Hellow " + index);
 // }
 

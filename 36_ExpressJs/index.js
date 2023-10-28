@@ -47,16 +47,16 @@ app.get("/", (req, res) => {
 
 
 // ------------------------------------------variable username--------------
-// app.get("/:username", (req, res) => {
-//     let { username } = req.params;
-//     res.send(`This account belongs to ${username}`);
-// })
+app.get("/:username", (req, res) => {
+    let { username } = req.params;
+    res.send(`This account belongs to ${username}`);
+})
 
 // ------------------variable username with id--------------
-app.get("/:username/:id", (req, res) => {
-    let { username, id } = req.params;
+app.get("/:username/:id/:name", (req, res) => {
+    let { username, id, name } = req.params;
     // console.log(req.params);
-    res.send(`Welcome to: @${username} with id: #${id}`);
+    res.send(`Welcome to: @${username} with id: #${id} , ${name}`);
 });
 
 
