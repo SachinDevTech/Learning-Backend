@@ -43,12 +43,21 @@ app.get("/rollDice", (req, res) => {
 // });
 
 // instagram Project
+app.use(express.static(path.join(__dirname, "/public/CSS/")));
+app.use(express.static(path.join(__dirname, "/public/Javascript")));
+
 app.get("/ig/:username/", (req, res) => {
     const instaData = require("./data.json");
     let { username } = req.params;
     const data = instaData[username];
     console.log(data);
-    res.render("instagramProject.ejs", { data });
+    if (data) {
+        res.render("instagramProject.ejs", { data });
+    }
+    else {
+        res.render("error.ejs");
+
+    }
 });
 
 

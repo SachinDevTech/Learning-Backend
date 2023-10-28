@@ -1,18 +1,38 @@
+<!-- <%- include("includes/head.ejs") %> -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Instagram template</title>
+    <title>Instagram</title>
+    <link rel="stylesheet" href="/style.css">
   </head>
-  <body>
+</html>
+  <body style="margin: 0; padding: 0;">
     <h1>Hello, I am creating insta page.</h1>
     <button>Follow</button>
     <button>Message</button>
+    <!--Followers and Following details are given as:  -->
     <h2>This account has: <%= data.name %></h2>
-
-    <p>Followers: <%= data.followers %> </p>
-    <p>Following: <%= data.following %> </p>
-
+    <p>
+      <button style="cursor: pointer; padding: 1rem">
+        Followers: <%= data.followers %>
+      </button>
+      &nbsp;&nbsp;&nbsp;
+      <button style="cursor: pointer; padding: 1rem">
+        Following: <%= data.following %>
+      </button>
+    </p>
+    <hr />
+    <!-- images of accounts with likes and comment will also be shown over here. -->
+    <% for (let post of data.posts) {%>
+    <img src="<%= post.image %>" alt="images related to cat or dog"/>
+    <p>
+      Likes: <%= post.likes %> &nbsp;&nbsp;&nbsp; Comments: <%=
+      post.comments %>
+    </p>
+    <% } %>
+    <%- include("includes/footer.ejs") %>
   </body>
+  <script src="/script.js"></script>
 </html>
