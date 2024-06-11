@@ -1,18 +1,18 @@
 <%- include("includes/head.ejs") %>
 
-  <body style="margin: 0; padding: 0;">
-    <div class="wrapper">
-      <h2>This account belongs to @<%= username %></h2>
-      <button>Follow</button>
-      <button>Message</button>
+<body style="margin: 0; padding: 0;">
+  <div class="wrapper">
+    <h2>This account belongs to @<%= username %></h2>
+    <button>Follow</button>
+    <button>Message</button>
 
-      <h3>Your Followers:</h3>
-      <ul></ul>
-      <%for(let name of followers){%>
+    <h3>Your Followers:</h3>
+    <ul>
+      <% followers.forEach(function(name) { %>
         <li><%= name %></li>
-        <%}%>
-      </ul>
-    </div>
-    <%- include("includes/footer.ejs") %>
-  </body>
+      <% }) %>
+    </ul>
+  </div>
+  <%- include("includes/footer.ejs") %>
+</body>
 </html>
