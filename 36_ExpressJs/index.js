@@ -41,9 +41,9 @@ app.get("/", (req, res) => {
 //     res.send("You requested for /mango path.");
 // });
 
-// app.get("*", (req, res) => {
-//     res.send("This path does'nt exist.");
-// });
+app.get("*", (req, res) => {
+    res.send("This path does'nt exist.");
+});
 
 
 // ------------------------------------------variable username--------------
