@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="main-heading">Post Management</h1>
+        <h2 class="subheading">Manage your posts below</h2>
+
+        <!-- Form to create a new post -->
+        <div class="post-form">
+            <form action="/create-post" method="POST">
+                <input type="text" name="username" placeholder="Enter Username" required>
+                <textarea name="content" placeholder="Enter Post Content" required></textarea>
+                <button type="submit" class="btn create-btn">Create Post</button>
+            </form>
+        </div>
+
+        <!-- Displaying Posts -->
+        <div class="posts-list">
+            <% posts.forEach(function(post, index) { %>
+                <div class="post">
+                    <h3><%= post.username %></h3>
+                    <p><%= post.content %></p>
+
+                    <!-- Edit Post Form -->
+                    <form class="edit-form" action="/edit-post/<%= index %>" method="POST">
+                        <input type="text" name="content" placeholder="Edit content" required>
+                        <button type="submit" class="btn edit-btn">Edit Post</button>
+                    </form>
+
+                    <!-- Delete Post Button -->
+                    <form action="/delete-post/<%= index %>" method="POST">
+                        <button type="submit" class="btn delete-btn">Delete Post</button>
+                    </form>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</body>
+</html>
